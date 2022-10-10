@@ -356,10 +356,10 @@ const updateFilter = () => {
         grayscale = filterSlider.value;
     }
     applyFilters();
-    ```
+```
     
     Rotate Picture
-    ```
+```
     rotateOptions.forEach(option => {
     option.addEventListener("click",()=>{
         if (option.id === "left"){
@@ -380,7 +380,7 @@ const updateFilter = () => {
             
         }
         applyFilters();
-	```
+```
 
 Reset button
 ```
