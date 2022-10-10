@@ -79,7 +79,7 @@ rotateOptions.forEach(option => {
             rotate -= 90; //decrement left rotate value by -90; img turn left
         }
         else if (option.id === "right"){
-            rotate += 90; //increment right rotate value by -90; img turn right
+            rotate += 90; //increment right rotate value by +90; img turn right
         }
         else if (option.id === "horizontal"){
             //if flipHorizontal value is 1, set the value to -1 else set 1
