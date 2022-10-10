@@ -357,8 +357,12 @@ const updateFilter = () => {
     }
     applyFilters();
 ```
-    
-    Rotate Picture
+  
+  
+  
+
+Rotate Picture
+
 ```
     rotateOptions.forEach(option => {
     option.addEventListener("click",()=>{
