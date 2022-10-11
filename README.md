@@ -270,7 +270,7 @@ const loadImage = () => {
 }
 ```
 
-We will need a function to highlight a specific button we clicked, lets say "brightness", then it will highlight it. Additionally, the filter name will be changed according to the button clicked as well as the filter slider value. 
+We will need a function to highlight a specific button we clicked, lets say "brightness", hence the use of **active**. Apart of that, with the fuction **innerText** the filter name will be changed according to the button clicked as well as the filter slider value. 
 ```
 filterOptions.forEach(option => {
     option.addEventListener("click",()=>{
@@ -297,7 +297,7 @@ filterOptions.forEach(option => {
         }
 ```
 
-Update Image based on the slider value
+After we have set the filter value, we will need to update the image accordingly: 
 ```
 const updateFilter = () => {
     filterValue.innerText= `${filterSlider.value}%`;
@@ -319,7 +319,7 @@ const updateFilter = () => {
     applyFilters();
 ```
 
-Filters will be changed according to this: 
+Image will be altered using `tranform` for rotation of image and `filter` for visual changes. 
 
 ```
 const applyFilters = () => {
@@ -328,7 +328,7 @@ const applyFilters = () => {
 }
 ```
 
-Rotate Picture
+**Function to Rotate Picture**
 
 ```
     rotateOptions.forEach(option => {
@@ -353,7 +353,7 @@ Rotate Picture
         applyFilters();
 ```
 
-Reset all variable value to its default value.
+**Reset all variable value to its default value.**
 ```
 const resetFilter = () => {
 brightness = 100; saturation = 100; inversion = 0; grayscale = 0;
@@ -363,8 +363,7 @@ applyFilters();
 }
 ```
 
-Save Image. Need to use canvas to download image with filters. 
-canvas.getContext return a drawing context on the canvas
+Our last step is to add a function that will enable us to save our edited image. Here we shall use `canvas` to download our image. 
 
 ```
 const saveImage = () => {
@@ -391,4 +390,17 @@ const saveImage = () => {
     link.click(); //clicking <a> tag so the image download
 }
 ```
+
+Before that, let's not forgot to insert `addEventListener()` method to our code so it will function properly. This method is added to call functions when a specific button is click such as the **Save Image** button. 
+
+```
+fileInput.addEventListener("change",loadImage);
+filterSlider.addEventListener("input", updateFilter);
+resetFilterBtn.addEventListener("click", resetFilter);
+saveImgBtn.addEventListener("click", saveImage);
+chooseImgBtn.addEventListener("click",() => fileInput.click());
+```
+
+Now we are done with our website!
+
 
