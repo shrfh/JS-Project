@@ -249,12 +249,14 @@ chooseImgBtn = document.querySelector(".choose-img"),
 saveImgBtn = document.querySelector(".save-img");
 ```
 
+
 Next is to declare the image constant filter:
 
 ```
 let brightness = 100, saturation = 100, inversion = 0, grayscale = 0;
 let rotate = 0, flipHorizontal= 1, flipVertical = 1;
 ```
+
 
 This function is to to display the selected image in the preview image section. The buttons in the website will be able to use after the user has chosen an image to edit.
 
@@ -269,6 +271,7 @@ const loadImage = () => {
     });
 }
 ```
+
 
 We will need a function to highlight a specific button we clicked, lets say "brightness", hence the use of **active**. Apart of that, with the fuction **innerText** the filter name will be changed according to the button clicked as well as the filter slider value. 
 ```
@@ -297,6 +300,7 @@ filterOptions.forEach(option => {
         }
 ```
 
+
 After we have set the filter value, we will need to update the image accordingly: 
 ```
 const updateFilter = () => {
@@ -319,6 +323,7 @@ const updateFilter = () => {
     applyFilters();
 ```
 
+
 Image will be altered using `tranform` for rotation of image and `filter` for visual changes. 
 
 ```
@@ -327,6 +332,7 @@ const applyFilters = () => {
     previewImg.style.filter= `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`;
 }
 ```
+
 
 **Function to Rotate Picture**
 
@@ -353,6 +359,7 @@ const applyFilters = () => {
         applyFilters();
 ```
 
+
 **Reset all variable value to its default value.**
 ```
 const resetFilter = () => {
@@ -362,6 +369,7 @@ filterOptions[0].click(); //clicking brightness btn, so brightness selected bt d
 applyFilters();
 }
 ```
+
 
 Our last step is to add a function that will enable us to save our edited image. Here we shall use `canvas` to download our image. 
 
@@ -390,6 +398,7 @@ const saveImage = () => {
     link.click(); //clicking <a> tag so the image download
 }
 ```
+
 
 Before that, let's not forgot to insert `addEventListener()` method to our code so it will function properly. This method is added to call functions when a specific button is click such as the **Save Image** button. 
 
