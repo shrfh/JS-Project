@@ -1,5 +1,5 @@
 # Image Editor 
-A photo editor made with HTML, CSS, and JavaScript. User can apply filters to their images, such as grayscale, inversion, saturation, and brightness adjustments as well as flip or rotate the images and save their edited versions in their laptop.
+An image editor created using HTML, CSS, and JavaScript allows users to make changes to their images. This editor includes buttons for brightness, saturation, inversion, and grayscale filtering, as well as the ability to flip an image in different directions.
 
 # HTML 
 
@@ -55,9 +55,9 @@ A photo editor made with HTML, CSS, and JavaScript. User can apply filters to th
 
 ```
 
-As shown above is our HTML file where we write the body of our code. In here are the buttons needed in the Image Editor webpage. A slider is also added for us to increase or decrease the amount of the filter button we selected.
+As shown above is our HTML file where we write the body of our code. The website's contents will be contained within the HTML: buttons for rotation and filter options, as well as a slider for changing the value of the selected filter
 
-Next, let us do the CSS file.
+Next, lets move onto the CSS file.
 
 # CSS
 ```
@@ -67,7 +67,6 @@ Next, let us do the CSS file.
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
 body{
     display: flex;
     align-items: center;
@@ -75,7 +74,6 @@ body{
     min-height: 100vh;
     background: #E3F2FD;
 }
-
 .container{
     width: 850px;
     background: #fff;
@@ -83,42 +81,35 @@ body{
     padding: 30px 35px 35px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-
 .container.disable :where(.editor-panel, .reset-filter, .save-img){
     opacity: 0.6;
     pointer-events: none;
 }
-
 .container h2{
     font-size: 22px;
     font-weight: 500;
 }
-
 .container .wrapper{
     display: flex;
     margin: 20px 0;
     min-height: 335px;
 }
-
 .wrapper .editor-panel{
     width: 280px;
     padding: 15px 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-
 .editor-panel .title{
     display: block;
     font-size: 16px;
     margin-bottom: 12px;
 }
-
 .editor-panel .options, .controls{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
 .editor-panel button{
     height: 40px;
     font-size: 14px;
@@ -128,53 +119,42 @@ body{
     background: #fff;
     border: 1px solid #aaa;
 }
-
 .editor-panel .filter-button{
     width: calc(100% / 2 - 4px);
-
 }
-
 .editor-panel button:hover{
     background: #f5f5f5;
 }
-
 .filter button.active{
     color: #fff;
     background: #5372F0;
     border-color: #5372F0;
 }
-
 .filter .slider{
     margin-top: 12px;
 
 }
-
 .filter .slider .filter-info{
     display: flex;
     color: #464646;
     font-size: 14px;
     justify-content: space-between;
 }
-
 .filter .slider input{
     width: 100%;
     height: 5px;
     accent-color: #5372f0;
 }
-
 .editor-panel .rotate{
     margin-top: 17px;
 }
-
 .editor-panel .rotate button{
     width: calc(100%/4-3px);
 }
-
 .rotate button:nth-child(3)
 .rotate button:nth-child(4){
     font-size: 18px;
 }
-
 .wrapper .preview-img{
     flex-grow: 1;
     display: flex;
@@ -183,7 +163,6 @@ body{
     justify-content: center;
     margin-left: 20px;
 }
-
 .preview-img img{
     max-width: 490px;
     max-height: 335px;
@@ -192,7 +171,6 @@ body{
     object-fit: contain;
 
 }
-
 .controls button{
     font-size: 14px;
     cursor: pointer;
@@ -202,18 +180,15 @@ body{
     border-radius: 3px;
     text-transform: uppercase;
 }
-
 .controls .reset-filter{
     color: #6C757D;
     border: 1px solid #6C757D;
 
 }
-
 .controls .choose-img{
     background: #6C757D;
     border: 1px solid #6C757D;
 }
-
 .controls .save-img{
     background: #5372F0;
     border: 1px solid #5372F0;
@@ -234,38 +209,33 @@ body{
     .wrapper .editor-panel{
         width: 100%;
     }
-
     .wrapper .preview-img{
         width: 100%;
         margin: 0 0 15px;
-    }
-    
+    }  
 }
-
 @media screen and (max-width: 500px) {
     .controls button{
         width: 100%;
         margin-bottom: 10px;
     }
-
     .controls .row{
         width: 100%;
     }
-
     .controls .row .save-img{
         margin-left: 0px;
-    }
-    
+    }  
 }
 
 
 
 ```
 
-In here, is how we design what our website will look like. 
+The code written in CSS is how the web page will be designed and displayed to users. CSS is used to specify the styles of the web pages, including the design, layout, and variations in display for various devices and screen sizes. 
+ 
 
 # JS
-In our JavaScript file will containt the important parts of the website such as the functionality for the filters. First and foremost, we need to declare the variables:
+The essential elements of the website, such as the filter functionality, are contained in this JavaScript file.
 ```
 const fileInput = document.querySelector(".file-input"),
 filterOptions = document.querySelectorAll(".filter button"),
@@ -279,23 +249,14 @@ chooseImgBtn = document.querySelector(".choose-img"),
 saveImgBtn = document.querySelector(".save-img");
 ```
 
-Next is to set the image to it's constant filters.
+Next is to declare the image constant filter:
 
 ```
 let brightness = 100, saturation = 100, inversion = 0, grayscale = 0;
 let rotate = 0, flipHorizontal= 1, flipVertical = 1;
 ```
 
-Declare constant apply filters
-
-```
-const applyFilters = () => {
-    previewImg.style.transform = `rotate(${rotate}deg) scale(${flipHorizontal} , ${flipVertical}`;
-    previewImg.style.filter= `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`;
-}
-```
-
-To insert a new image
+This function is to to display the selected image in the preview image section. The buttons in the website will be able to use after the user has chosen an image to edit.
 
 ```
 const loadImage = () => {
@@ -309,7 +270,7 @@ const loadImage = () => {
 }
 ```
 
-Filter Slider Option
+We will need a function to highlight a specific button we clicked, lets say "brightness", then it will highlight it. Additionally, the filter name will be changed according to the button clicked as well as the filter slider value. 
 ```
 filterOptions.forEach(option => {
     option.addEventListener("click",()=>{
@@ -357,9 +318,15 @@ const updateFilter = () => {
     }
     applyFilters();
 ```
-  
-  
-  
+
+Filters will be changed according to this: 
+
+```
+const applyFilters = () => {
+    previewImg.style.transform = `rotate(${rotate}deg) scale(${flipHorizontal} , ${flipVertical}`;
+    previewImg.style.filter= `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`;
+}
+```
 
 Rotate Picture
 
@@ -386,7 +353,7 @@ Rotate Picture
         applyFilters();
 ```
 
-Reset button
+Reset all variable value to its default value.
 ```
 const resetFilter = () => {
 brightness = 100; saturation = 100; inversion = 0; grayscale = 0;
@@ -396,7 +363,9 @@ applyFilters();
 }
 ```
 
-Save Image
+Save Image. Need to use canvas to download image with filters. 
+canvas.getContext return a drawing context on the canvas
+
 ```
 const saveImage = () => {
     const canvas = document.createElement("canvas"); //creating canvas element
