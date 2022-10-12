@@ -258,7 +258,7 @@ let rotate = 0, flipHorizontal= 1, flipVertical = 1;
 ```
 
 
-This function is to to display the selected image in the preview image section. The buttons in the website will be able to use after the user has chosen an image to edit.
+This function is to display the selected image in the preview image section. The buttons in the website will be able to use after the user has chosen an image to edit.
 
 ```
 const loadImage = () => {
